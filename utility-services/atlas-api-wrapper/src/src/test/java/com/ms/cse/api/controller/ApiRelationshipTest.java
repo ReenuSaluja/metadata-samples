@@ -10,7 +10,7 @@ import com.ms.cse.api.conf.Configuration;
 import com.ms.cse.api.conf.Constants;
 import com.ms.cse.api.service.ApiService;
 
-class ApiEntityTest {
+class ApiRelationshipTest {
 
 	Configuration config = new Configuration();
 	Constants cons= new Constants();
@@ -21,7 +21,7 @@ class ApiEntityTest {
 	}
 	com.ms.cse.api.service.ApiServiceImpl apiService = new com.ms.cse.api.service.ApiServiceImpl();
     @Test
-    void getApiEntity() {
+    void getApiRelationship() {
     	Configuration config = new Configuration();
     	String input = "{\r\n" + 
     			"    \"entities\": [\r\n" + 
@@ -48,7 +48,35 @@ class ApiEntityTest {
     }
     
     @Test
-    public void postEntityBulk() {
+    public void putApiRelationship() {
+    	Configuration config = new Configuration();
+    	String input = "{\r\n" + 
+    			"    \"entities\": [\r\n" + 
+    			"        {\r\n" + 
+    			"            \"typeName\": \"adls_gen2_resource_set\",\r\n" + 
+    			"            \"createdBy\": \"sg\",\r\n" + 
+    			"            \"attributes\": {\r\n" + 
+    			"                \"qualifiedName\": \"/2019/\",\r\n" + 
+    			"                \"name\": \"/2019/\"\r\n" + 
+    			"            }\r\n" + 
+    			"        }\r\n" + 
+    			"	]\r\n" + 
+    			"}";
+    	String result=null;
+    	try {
+			result=apiService.callApi("PUT", input, "v2/entity");
+			System.out.println(result);
+	    	assertTrue(true);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			assertTrue(true);
+		}
+		
+	}
+    
+    @Test
+    public void postApiRelationship() {
     	Configuration config = new Configuration();
     	String input = "{\r\n" + 
     			"    \"entities\": [\r\n" + 
@@ -67,6 +95,34 @@ class ApiEntityTest {
 			result=apiService.callApi("POST", input, "v2/entity");
 			System.out.println(result);
 	    	assertTrue(true);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			assertTrue(true);
+		}
+		
+	}
+    
+    @Test
+    public void deleteApiRelationship() {
+    	Configuration config = new Configuration();
+    	String input = "{\r\n" + 
+    			"    \"entities\": [\r\n" + 
+    			"        {\r\n" + 
+    			"            \"typeName\": \"adls_gen2_resource_set\",\r\n" + 
+    			"            \"createdBy\": \"sg\",\r\n" + 
+    			"            \"attributes\": {\r\n" + 
+    			"                \"qualifiedName\": \"/2019/\",\r\n" + 
+    			"                \"name\": \"/2019/\"\r\n" + 
+    			"            }\r\n" + 
+    			"        }\r\n" + 
+    			"	]\r\n" + 
+    			"}";
+    	String result=null;
+    	try {
+			result=apiService.callApi("DELETE", input, "v2/entity");
+			System.out.println(result);
+	    	//assertTrue(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
