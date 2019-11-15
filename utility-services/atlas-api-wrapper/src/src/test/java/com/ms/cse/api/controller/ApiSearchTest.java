@@ -17,11 +17,19 @@ class ApiSearchTest {
 	void conf()
 	{
 		Configuration config = new Configuration();
+//		cons.ATLASSERVERIP="40.127.72.92";
+//		cons.ATLASSERVERPORT="21000";
+//		cons.PASSWORD="admin";
+//		cons.USERNAME="admin";
 	}
 	com.ms.cse.api.service.ApiServiceImpl apiService = new com.ms.cse.api.service.ApiServiceImpl();
     @Test
     void searchBasicGet() {
-    	Configuration config = new Configuration();
+//    	Configuration config = new Configuration();
+    	cons.ATLASSERVERIP="40.127.72.92";
+		cons.ATLASSERVERPORT="21000";
+		cons.PASSWORD="admin";
+		cons.USERNAME="admin";
     	String query = "from azure_cosmosdb_database where qualifiedName=test%2testdb";
     	String result=null;
     	try {
@@ -31,6 +39,7 @@ class ApiSearchTest {
     	catch(Exception e)
     	{
     		//e.printStackTrace();
+    		
     		assertTrue(true);
     	}
     }

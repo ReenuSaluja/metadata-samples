@@ -18,11 +18,19 @@ class ApiEntityTest {
 	void conf()
 	{
 		Configuration config = new Configuration();
+//		cons.ATLASSERVERIP="40.127.72.92";
+//		cons.ATLASSERVERPORT="21000";
+//		cons.PASSWORD="admin";
+//		cons.USERNAME="admin";
 	}
 	com.ms.cse.api.service.ApiServiceImpl apiService = new com.ms.cse.api.service.ApiServiceImpl();
     @Test
     void getApiEntity() {
-    	Configuration config = new Configuration();
+//    	Configuration config = new Configuration();
+//    	cons.ATLASSERVERIP="40.127.72.92";
+//		cons.ATLASSERVERPORT="21000";
+//		cons.PASSWORD="admin";
+//		cons.USERNAME="admin";
     	String input = "{\r\n" + 
     			"    \"entities\": [\r\n" + 
     			"        {\r\n" + 
@@ -37,19 +45,23 @@ class ApiEntityTest {
     			"}";
     	String result=null;
     	try {
-    	result=apiService.callApi("GET", input, "v2/entity");
+    	result=apiService.callApi("POST", input, "v2/entity");
     	assertTrue(true);
     	}
     	catch(Exception e)
     	{
-    	    //e.printStackTrace();
-    		assertTrue(true);
+    	//	e.printStackTrace();
+    		
+    		assertTrue(false);
     	}
     }
     
     @Test
-    public void postEntityBulk() {
-    	Configuration config = new Configuration();
+    public void entityBulkGet() {
+//    	cons.ATLASSERVERIP="40.127.72.92";
+//		cons.ATLASSERVERPORT="21000";
+//		cons.PASSWORD="admin";
+//		cons.USERNAME="admin";
     	String input = "{\r\n" + 
     			"    \"entities\": [\r\n" + 
     			"        {\r\n" + 
@@ -70,7 +82,7 @@ class ApiEntityTest {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			assertTrue(true);
+			assertTrue(false);
 		}
 		
 	}
